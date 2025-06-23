@@ -115,37 +115,42 @@
             max-width: 700px;
             margin: 0 auto 40px;
         }
-        
         .search-bar {
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .search-bar input {
-            width: 100%;
-            padding: 15px 20px;
-            border-radius: 50px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .search-bar button {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 10px 25px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .search-bar button:hover {
-            background-color: var(--secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px 20px;
+    padding-right: 120px; /* Add right padding for button */
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.search-bar button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    bottom: 5px; /* Match top/bottom spacing */
+    height: calc(100% - 10px); /* Full height minus top/bottom */
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0 25px; /* Remove vertical padding */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px; /* Match input font size */
+}
+
+.search-bar button:hover {
+    background-color: var(--secondary);
+}
         }
         
         /* Tools Section */
