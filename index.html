@@ -502,14 +502,75 @@
                 
                 <!-- Tool Card 3 -->
                 <div class="tool-card">
-              <div class="tool-card-img">
-                        <i class="fas fa-file-word"></i>
-                    </div>
-                    <div class="tool-card-content">
-                        <h3>PDF to Word</h3>
-                        <p>Convert PDF files to editable Word documents.</p>
-                        <a href=/tools/pdf-to-word.html"#">Use Tool</a>
-                    </div>      
+              <a href="/tools/pdf-to-word.html" class="tool-card-link">
+  <div class="tool-card">
+    <div class="tool-card-img">
+      <i class="fas fa-file-word"></i>
+    </div>
+    <div class="tool-card-content">
+      <h3>PDF to Word</h3>
+      <p>Convert PDF files to editable Word documents.</p>
+      <span class="tool-cta">Use Tool</span>
+    </div>
+  </div>
+</a>
+
+<style>
+.tool-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.tool-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  transition: all 0.3s ease;
+  max-width: 280px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.tool-card-img i {
+  font-size: 48px;
+  color: #2b579a;
+  margin-bottom: 16px;
+}
+
+.tool-card-content h3 {
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.tool-card-content p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.tool-cta {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #2b579a;
+  color: white;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tool-card:hover .tool-cta {
+  background-color: #1e4b8b;
+}
+</style>      
                 </div>
                 
                 <!-- Tool Card 4 -->
