@@ -816,7 +816,693 @@
             <div class="section-title">
                 <h2>Why Choose Our Tools</h2>
                 <p>We provide the best online tools experience</p>
+            </div>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Video Downloader - Save Videos from Twitter/X | SocialMediaTools</title>
+    <meta name="description" content="Free online tool to download videos from Twitter/X. Save HD quality videos with optional compression. No registration required.">
+    <meta name="keywords" content="twitter video downloader, download twitter videos, save twitter video, twitter video saver, x video downloader">
+    <meta name="author" content="SocialMediaTools">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Twitter Video Downloader - Save Videos from Twitter/X">
+    <meta property="og:description" content="Download videos from Twitter/X in HD quality with optional compression">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://socialmediatools.example.com/twitter-video-downloader">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://via.placeholder.com/32" type="image/x-icon">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://socialmediatools.example.com/twitter-video-downloader">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Twitter Video Downloader",
+      "url": "https://socialmediatools.example.com/twitter-video-downloader",
+      "description": "Online tool to download videos from Twitter/X",
+      "applicationCategory": "VideoDownloader",
+      "operatingSystem": "Any"
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary: #1DA1F2; /* Twitter blue */
+            --secondary: #1991DA;
+            --accent: #E1E8ED;
+            --light: #f8f9fa;
+            --dark: #14171A;
+            --success: #17BF63;
+            --danger: #E0245E;
+            --warning: #FFAD1F;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        /* Main Tool Container */
+        .tool-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .tool-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tool-header h1 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .tool-header p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* URL Input Area */
+        .input-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .input-area input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .input-area button {
+            padding: 0 25px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .input-area button:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Video Preview */
+        .video-preview {
+            display: none;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .video-preview video {
+            max-width: 100%;
+            border-radius: 5px;
+            background-color: #000;
+        }
+        
+        /* Download Options */
+        .options-section {
+            margin-bottom: 30px;
+        }
+        
+        .options-section h3 {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .quality-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .quality-option {
+            flex: 1;
+            min-width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quality-option:hover {
+            border-color: var(--primary);
+        }
+        
+        .quality-option.selected {
+            border-color: var(--primary);
+            background-color: #f0f4ff;
+        }
+        
+        .quality-option h4 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .quality-option p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Compression Options */
+        .compression-options {
+            margin-top: 20px;
+        }
+        
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .action-btn {
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .primary-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+        }
+        
+        .primary-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        .secondary-btn {
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .secondary-btn:hover {
+            background-color: #f0f4ff;
+        }
+        
+        /* Ad Spaces */
+        .ad-space {
+            background-color: #f8f9fa;
+            border: 1px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .ad-space.top-ad {
+            margin-top: 0;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .input-area {
+                flex-direction: column;
+            }
+            
+            .input-area button {
+                width: 100%;
+                padding: 15px;
+            }
+            
+            .quality-options {
+                flex-direction: column;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                width: 100%;
+            }
+        }
+        
+        /* Loading State */
+        .loading-state {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary);
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Results Section */
+        .results-section {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--success);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        
+        .download-btn:hover {
+            background-color: #15a955;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter Video Downloader</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Video Tools</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Top Ad Space -->
+    <div class="container">
+        <div class="ad-space top-ad">
+            <!-- Replace with your Google AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+                crossorigin="anonymous"></script>
+            <!-- TwitterVideo_TopBanner -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                data-ad-slot="YOUR_AD_SLOT_ID"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Main Tool Container -->
+    <div class="container">
+        <div class="tool-container">
+            <div class="tool-header">
+                <h1>Twitter Video Downloader</h1>
+                <p>Download videos from Twitter/X in HD quality. Paste the tweet URL below to get started.</p>
             </div>
+            
+            <!-- URL Input Area -->
+            <div class="input-area">
+                <input type="text" id="tweetUrl" placeholder="Paste Twitter video URL here...">
+                <button id="fetchBtn">Fetch Video</button>
+            </div>
+            
+            <!-- Video Preview -->
+            <div class="video-preview" id="videoPreview">
+                <video controls id="previewVideo">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <!-- Download Options -->
+            <div class="options-section" id="optionsSection" style="display: none;">
+                <h3>Download Options</h3>
+                <div class="quality-options">
+                    <div class="quality-option selected" data-quality="hd">
+                        <h4>HD Quality</h4>
+                        <p>Best quality, larger file size</p>
+                    </div>
+                    <div class="quality-option" data-quality="sd">
+                        <h4>Standard Quality</h4>
+                        <p>Good quality, smaller file size</p>
+                    </div>
+                    <div class="quality-option" data-quality="compressed">
+                        <h4>Compressed</h4>
+                        <p>Lower quality, smallest file size</p>
+                    </div>
+                </div>
+                
+                <!-- Compression Options -->
+                <div class="compression-options">
+                    <h3>Advanced Options</h3>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="removeAudio" checked>
+                            Remove audio (reduce file size)
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="trimVideo">
+                            Trim video (select portion to download)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mid-Page Ad Space -->
+            <div class="ad-space">
+                <!-- Replace with your Google AdSense code -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+                    crossorigin="anonymous"></script>
+                <!-- TwitterVideo_MidBanner -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                    data-ad-slot="YOUR_AD_SLOT_ID"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons" id="actionButtons" style="display: none;">
+                <button class="action-btn primary-btn" id="downloadBtn">Download Video</button>
+                <button class="action-btn secondary-btn" id="resetBtn">Reset</button>
+            </div>
+            
+            <!-- Loading State -->
+            <div class="loading-state" id="loadingState">
+                <div class="spinner"></div>
+                <p>Processing your request...</p>
+            </div>
+            
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <h3>Your video is ready to download!</h3>
+                <a href="#" class="download-btn" id="finalDownloadBtn">
+                    <i class="fas fa-download"></i> Download Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Ad Space -->
+    <div class="container">
+        <div class="ad-space">
+            <!-- Replace with your Google AdSense code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+                crossorigin="anonymous"></script>
+            <!-- TwitterVideo_FooterBanner -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                data-ad-slot="YOUR_AD_SLOT_ID"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SocialMediaTools</h3>
+                    <p>Your complete solution for social media content downloading.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Popular Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Twitter Video Downloader</a></li>
+                        <li><a href="#">Instagram Video Downloader</a></li>
+                        <li><a href="#">Facebook Video Downloader</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 SocialMediaTools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script>
+        // DOM Elements
+        const tweetUrlInput = document.getElementById('tweetUrl');
+        const fetchBtn = document.getElementById('fetchBtn');
+        const videoPreview = document.getElementById('videoPreview');
+        const previewVideo = document.getElementById('previewVideo');
+        const optionsSection = document.getElementById('optionsSection');
+        const actionButtons = document.getElementById('actionButtons');
+        const loadingState = document.getElementById('loadingState');
+        const resultsSection = document.getElementById('resultsSection');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const finalDownloadBtn = document.getElementById('finalDownloadBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const qualityOptions = document.querySelectorAll('.quality-option');
+        
+        // Current video data
+        let currentVideoUrl = '';
+        let currentQuality = 'hd';
+        
+        // Event Listeners
+        fetchBtn.addEventListener('click', fetchTwitterVideo);
+        downloadBtn.addEventListener('click', processDownload);
+        resetBtn.addEventListener('click', resetTool);
+        
+        qualityOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                qualityOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                currentQuality = option.dataset.quality;
+            });
+        });
+        
+        // Functions
+        function fetchTwitterVideo() {
+            const tweetUrl = tweetUrlInput.value.trim();
+            
+            if (!tweetUrl) {
+                alert('Please enter a Twitter video URL');
+                return;
+            }
+            
+            // Validate Twitter URL
+            if (!isValidTwitterUrl(tweetUrl)) {
+                alert('Please enter a valid Twitter video URL');
+                return;
+            }
+            
+            // Show loading state
+            loadingState.style.display = 'block';
+            videoPreview.style.display = 'none';
+            optionsSection.style.display = 'none';
+            actionButtons.style.display = 'none';
+            resultsSection.style.display = 'none';
+            
+            // In a real implementation, you would call your backend API here
+            // This is a simulation for demonstration purposes
+            setTimeout(() => {
+                // Hide loading state
+                loadingState.style.display = 'none';
+                
+                // Simulate fetching a video (in real app, this would be from API)
+                currentVideoUrl = 'https://example.com/twitter-video.mp4'; // Simulated URL
+                
+                // Show video preview
+                previewVideo.src = currentVideoUrl;
+                videoPreview.style.display = 'block';
+                
+                // Show options and buttons
+                optionsSection.style.display = 'block';
+                actionButtons.style.display = 'flex';
+                
+                // Scroll to video preview
+                videoPreview.scrollIntoView({ behavior: 'smooth' });
+            }, 2000);
+        }
+        
+        function isValidTwitterUrl(url) {
+            // Basic Twitter URL validation
+            return url.includes('twitter.com/') || url.includes('x.com/');
+        }
+        
+        function processDownload() {
+            // Show loading state
+            loadingState.style.display = 'block';
+            resultsSection.style.display = 'none';
+            
+            // Get selected options
+            const removeAudio = document.getElementById('removeAudio').checked;
+            const trimVideo = document.getElementById('trimVideo').checked;
+            
+            // Simulate processing delay (in real app, this would call your backend)
+            setTimeout(() => {
+                // Hide loading state
+                loadingState.style.display = 'none';
+                
+                // Generate download link (simulated)
+                const downloadUrl = generateDownloadUrl(currentVideoUrl, currentQuality, removeAudio, trimVideo);
+                finalDownloadBtn.href = downloadUrl;
+                
+                // Show results section
+                resultsSection.style.display = 'block';
+                
+                // Scroll to results
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            }, 3000);
+        }
+        
+        function generateDownloadUrl(videoUrl, quality, removeAudio, trimVideo) {
+            // In a real implementation, this would generate the actual download link
+            // For demo purposes, we'll just return the original URL
+            return videoUrl;
+        }
+        
+        function resetTool() {
+            // Reset input
+            tweetUrlInput.value = '';
+            
+            // Reset video preview
+            previewVideo.src = '';
+            videoPreview.style.display = 'none';
+            
+            // Reset options
+            qualityOptions.forEach(opt => opt.classList.remove('selected'));
+            document.querySelector('.quality-option[data-quality="hd"]').classList.add('selected');
+            currentQuality = 'hd';
+            document.getElementById('removeAudio').checked = true;
+            document.getElementById('trimVideo').checked = false;
+            
+            // Hide sections
+            optionsSection.style.display = 'none';
+            actionButtons.style.display = 'none';
+            loadingState.style.display = 'none';
+            resultsSection.style.display = 'none';
+            
+            // Reset current video
+            currentVideoUrl = '';
+        }
+        
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>
+
+            
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
